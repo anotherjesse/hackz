@@ -3,6 +3,10 @@ Lesson 1: Web Log Parsing
 
 To learn how Disco and MapReduce works, I've started with trivial log parsing, counting the number of requests by an IP.
 
+.. code-block:: bash
+
+ cat access.log | cut -f1 -d" " | sort | uniq -c | sort -n -r | head -n 20
+
 Import logs into DDFS
 ---------------------
 
@@ -120,3 +124,7 @@ Now we have our results.
  72.14.199.120           19664
  58.26.217.95            19475
 
+Multi-pass MapReduce
+--------------------
+
+Rather than calculate the top 20 IPs using python, we could add another map reduce step.
